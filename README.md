@@ -22,10 +22,14 @@ maven { url 'https://jitpack.io' }
 详细用法：
 
 在点击事件中 
+
+
   Intent intent = new Intent(getApplicationContext(), CaptureActivity.class);
                 startActivityForResult(intent,resultcode);
+                
                 
 然后重写
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
