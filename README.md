@@ -25,6 +25,7 @@ maven { url 'https://jitpack.io' }
 
 
   Intent intent = new Intent(getApplicationContext(), CaptureActivity.class);
+  
                 startActivityForResult(intent,resultcode);
                 
                 
