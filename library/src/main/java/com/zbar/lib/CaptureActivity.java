@@ -2,6 +2,7 @@ package com.zbar.lib;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.Configuration;
 import android.graphics.Point;
@@ -38,7 +39,7 @@ import java.io.IOException;
 *QQ:172864659
 */
 public class CaptureActivity extends Activity implements Callback {
-
+	private int resultCode = 0;
 	private CaptureActivityHandler handler;
 	private boolean hasSurface;
 	private InactivityTimer inactivityTimer;
@@ -97,6 +98,7 @@ public class CaptureActivity extends Activity implements Callback {
 		this.cropHeight = cropHeight;
 	}
 
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -111,6 +113,7 @@ public class CaptureActivity extends Activity implements Callback {
 		mCropLayout = (RelativeLayout) findViewById(R.id.capture_crop_layout);
 		shoudian_Tv= (TextView) findViewById(R.id.shoudian_Tv);
 		sanguangdent_Img= (ImageView) findViewById(R.id.sanguangdent_Img);
+
 		sanguangdent_Img.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -197,10 +200,14 @@ public class CaptureActivity extends Activity implements Callback {
 //		resultIntent.putExtras(bundle);
 //		setResult(RESULT_OK, resultIntent);
 //		finish();
+
 //上面是原来的,下面是为了测试
 		inactivityTimer.onActivity();
 		playBeepSoundAndVibrate();
-		Toast.makeText(CaptureActivity.this,result, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(CaptureActivity.this,result, Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent();
+		intent.putExtra("result",result);
+		setResult(101,intent);
 		finish();
 
 		// 连续扫描
@@ -304,5 +311,7 @@ public class CaptureActivity extends Activity implements Callback {
 				& Configuration.SCREENLAYOUT_SIZE_MASK)
 				>= Configuration.SCREENLAYOUT_SIZE_LARGE;
 	}
+
+
 
 }

@@ -19,11 +19,11 @@
 
     <RelativeLayout
         android:id="@+id/capture_crop_layout"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_below="@id/top_mask"
         android:layout_centerHorizontal="true"
-        android:background="@mipmap/capture"
+        android:background="@drawable/qr_scan_frame"
         android:contentDescription="@string/app_name">
 
         <ImageView
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_margin="5dp"
-            android:background="@mipmap/scan_line"
+            android:background="@drawable/qr_scan_line"
             android:contentDescription="@string/app_name" />
     </RelativeLayout>
 
